@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git') {
+            steps {
+                git 'https://github.com/yuvasri-91/webhookpipeline.git'
+            }
+        }
+        stage('java') {
+            steps {
+                bat '''javac test.java
+                        java test.java'''
+            }
+        }
+    }
+}
